@@ -4,7 +4,7 @@ const homeRouter = Router();
 
 homeRouter.get("/", (req: Request, res: Response, next: NextFunction) => {
   return res.status(200).json({
-    message: "view all set 06 students data 😘😘",
+    message: "welcome to set06 platform 😘😘",
   });
 });
 
