@@ -19,4 +19,6 @@ export const errorHandler = (
   req: Response,
   res: Response,
   next: NextFunction
-) => {};
+) => {
+  devErrors(err, res);
+};
