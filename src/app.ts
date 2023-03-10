@@ -2,6 +2,7 @@ import express, { Application, Request, Response, NextFunction } from "express";
 import cors from "cors";
 import morgan from "morgan";
 import { errorHandler } from "./middleware/error";
+import { AppError, HttpCode } from "./utils/appError";
 
 //creating our application
 const appConfig = (app: Application) => {
@@ -9,9 +10,12 @@ const appConfig = (app: Application) => {
 
   //checking all routes
   app.all("*", (req: Request, res: Response, next: NextFunction) => {
-    return res.status(404).json({
-      message: `this route does not exist : ${req.originalUrl}`,
-    });
+    next(
+      new AppError({
+        httpCode: HttpCode.NOT_FOUND,
+        message: `this route does not exist : ${req.originalUrl}`,
+      })
+    );
   });
 
   //error handler

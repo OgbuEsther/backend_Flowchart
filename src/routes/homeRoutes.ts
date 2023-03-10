@@ -1,7 +1,7 @@
-import { Router, Request, Response } from "express";
+import { Router, Request, Response, NextFunction } from "express";
 
 const homeRouter = Router();
 
-homeRouter.get("/", (req: Request, res: Response) => {});
+homeRouter.get("/", (req: Request, res: Response, next: NextFunction) => {});
 
 // homeRouter.post()
