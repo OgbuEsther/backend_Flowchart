@@ -41,5 +41,16 @@ export class AppError extends Error {
   public readonly httpCode: HttpCode;
   constructor(args: errorArgs) {
     super(args.message);
+
+    Object.setPrototypeOf(this, new.target.prototype);
+
+    this.httpCode = args.httpCode;
+    this.name = args.name || "Error";
+
+    if (args.isOperational !== undefined) {
+      this.isOperational = args.isOperational;
+    }
+
+    Error.captureStackTrace(this);
   }
 }
