@@ -16,7 +16,7 @@ export const devErrors = (err: AppError, res: Response) => {
 //creating our error handler
 export const errorHandler = (
   err: AppError,
-  req: Response,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
