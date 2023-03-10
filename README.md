@@ -14,3 +14,6 @@ create an src folder (index and app) and inside that folder create a config fold
 1: imports (express , cors , morgan)
 
 NOTE : it should be imported in your root folder(index from src)
+
+//creating your database
+1: imports (mongoose)
