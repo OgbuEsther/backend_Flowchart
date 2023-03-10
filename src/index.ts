@@ -9,5 +9,5 @@ appConfig(app);
 dbConfig();
 
 app.listen(envVariables.PORT, () => {
-  console.log(`server is up on port ${2000}`);
+  console.log(`server is up on port ${envVariables.PORT}`);
 });
