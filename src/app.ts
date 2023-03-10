@@ -5,13 +5,10 @@ import { errorHandler } from "./middleware/error";
 
 //creating our application
 const appConfig = (app: Application) => {
-  app
-    .use(express.json())
-    .use(cors())
-    .use(morgan("dev"))
+  app.use(express.json()).use(cors()).use(morgan("dev"));
 
-    //error handler
-    .use(errorHandler);
+  //error handler
+  app.use(errorHandler);
 };
 
 export default appConfig;
