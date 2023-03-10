@@ -27,3 +27,16 @@ export enum HttpCode {
   GATEWAY_TIMEOUT = 504,
   NETWORK_TIMEOUT = 599,
 }
+
+interface errorArgs {
+  name?: string;
+  isOperational?: boolean;
+  message: string;
+  httpCode: HttpCode;
+}
+
+export class AppError extends Error {
+  constructor(args: errorArgs) {
+    super(args.message);
+  }
+}
