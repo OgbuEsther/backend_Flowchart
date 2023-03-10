@@ -22,3 +22,5 @@ NOTE : it should be imported in your root folder(index from src)
 
 //set up your error handlers
 1: create a utils folder in your src with two files in it (appError and asyncHandler)
+APPERROR
+_for reference see appError file_
