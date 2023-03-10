@@ -17,3 +17,7 @@ NOTE : it should be imported in your root folder(index from src)
 
 //creating your database
 1: imports (mongoose)
+
+NOTE : it should be imported in your root folder(index from src)
+
+//set up your error handlers
