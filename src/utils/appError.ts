@@ -36,6 +36,9 @@ interface errorArgs {
 }
 
 export class AppError extends Error {
+  public readonly name: string;
+  public readonly isOperational: boolean = true;
+  public readonly httpCode: HttpCode;
   constructor(args: errorArgs) {
     super(args.message);
   }
