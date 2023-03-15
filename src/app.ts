@@ -12,7 +12,7 @@ const appConfig = (app: Application) => {
 
   //routes (API endpoints)
   app.use("/api", router);
-  app.use("/api/auth", userRoutes);
+  // app.use("/api/auth", userRoutes);
 
   //checking all routes
   app.all("*", (req: Request, res: Response, next: NextFunction) => {
