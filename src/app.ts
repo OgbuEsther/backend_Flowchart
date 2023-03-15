@@ -4,6 +4,7 @@ import morgan from "morgan";
 import { errorHandler } from "./middleware/error";
 import { AppError, HttpCode } from "./utils/appError";
 import router from "./api";
+import userRoutes from "./routes/authroutes";
 
 //creating our application
 const appConfig = (app: Application) => {
@@ -11,6 +12,7 @@ const appConfig = (app: Application) => {
 
   //routes (API endpoints)
   app.use("/api", router);
+  app.use("/api/auth", userRoutes);
 
   //checking all routes
   app.all("*", (req: Request, res: Response, next: NextFunction) => {

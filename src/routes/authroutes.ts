@@ -5,3 +5,5 @@ import { registerValidation } from "../middleware/validator/userValidation/userV
 const userRoutes = Router();
 
 userRoutes.post("/register", registerValidation, register);
+
+export default userRoutes;
