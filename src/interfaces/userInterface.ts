@@ -7,3 +7,7 @@ export interface Iuser extends Document {
   role: string;
   confirmpassword: string;
 }
+
+export interface IuserDocument extends Document, Iuser {
+  comparePassword(password: string): Promise<boolean>;
+}

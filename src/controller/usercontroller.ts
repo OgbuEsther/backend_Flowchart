@@ -8,7 +8,12 @@ export const register = asyncHandler(
   async (req: Request<{}, {}, Iuser>, res: Response, next: NextFunction) => {
     const { email, name, password, confirmpassword } = req.body;
 
-    const user = await userModel.create(email, name, password, confirmpassword);
+    const user = await userModel.create({
+      email,
+      name,
+      password,
+      confirmpassword,
+    });
     if (!user) {
       next(
         new AppError({

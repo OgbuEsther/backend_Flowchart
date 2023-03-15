@@ -1,9 +1,9 @@
 import { Schema, model, Document } from "mongoose";
-import { Iuser } from "../interfaces/userInterface";
+import { IuserDocument } from "../interfaces/userInterface";
 import isEmail from "validator/lib/isEmail";
 import bcrypt from "bcrypt";
 
-const userSchema: Schema<Iuser> = new Schema(
+const userSchema: Schema<IuserDocument> = new Schema(
   {
     name: {
       type: String,
@@ -26,6 +26,7 @@ const userSchema: Schema<Iuser> = new Schema(
       required: [true, "please enter your password"],
     },
     role: {
+      type: String,
       enum: ["user", "admin", "manager"],
       message: "you must either be a user, an amin or a manager.",
       default: "user",
@@ -45,6 +46,6 @@ userSchema.pre("save", async function (next) {
   user.confirmpassword = user.password;
   next();
 });
-const userModel = model<Iuser>("userCollection", userSchema);
+const userModel = model<IuserDocument>("userCollection", userSchema);
 
 export default userModel;
