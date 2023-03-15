@@ -29,3 +29,25 @@ export const register = asyncHandler(
     });
   }
 );
+
+export const login = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { email, password } = req.body;
+
+    if (!email)
+      next(
+        new AppError({
+          message: "Email is required",
+          httpCode: HttpCode.BAD_REQUEST,
+        })
+      );
+
+    const user = await userModel.findOne({ email });
+
+    user?.comparePassword(password);
+
+    // if()
+
+    // return res.status(HttpCode.)
+  }
+);
