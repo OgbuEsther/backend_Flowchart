@@ -36,7 +36,7 @@ const userSchema: Schema<IuserDocument> = new Schema(
     timestamps: true,
   }
 );
-
+//Middleware for hashing password
 userSchema.pre("save", async function (next) {
   let user = this;
   if (!this.isModified("password")) next();
@@ -46,6 +46,10 @@ userSchema.pre("save", async function (next) {
   user.confirmpassword = user.password;
   next();
 });
+
+//middleware to compare password
+
+userSchema.methods.comparePassword = async function () {};
 const userModel = model<IuserDocument>("userCollection", userSchema);
 
 export default userModel;
