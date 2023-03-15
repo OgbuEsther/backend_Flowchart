@@ -53,8 +53,9 @@ export const login = asyncHandler(
 
     user?.comparePassword(password);
 
-    // if()
-
-    // return res.status(HttpCode.)
+    return res.status(HttpCode.OK).json({
+      message: "Success",
+      data: user,
+    });
   }
 );
