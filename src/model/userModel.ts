@@ -49,7 +49,10 @@ userSchema.pre("save", async function (next) {
 
 //middleware to compare password
 
-userSchema.methods.comparePassword = async function () {};
+userSchema.methods.comparePassword = async function (userPassword: string) {
+  const isMatch = await bcrypt.compare(userPassword, this.password);
+  return isMatch;
+};
 const userModel = model<IuserDocument>("userCollection", userSchema);
 
 export default userModel;
