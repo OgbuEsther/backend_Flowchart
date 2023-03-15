@@ -43,6 +43,13 @@ export const login = asyncHandler(
       );
 
     const user = await userModel.findOne({ email });
+    if (!user)
+      next(
+        new AppError({
+          message: "Account does not match",
+          httpCode: HttpCode.BAD_REQUEST,
+        })
+      );
 
     user?.comparePassword(password);
 
